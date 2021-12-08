@@ -1,0 +1,10 @@
+<script>
+ document.addEventListener('click', () => {
+ const win = window.open('', '', 'width=100,height=100')
+ let i = 0
+setInterval(() => {
+ win.moveTo(i, i)
+ i = (i + 5) % 200}, 100)
+ win.resizeTo(200, 200)
+})
+</script>
